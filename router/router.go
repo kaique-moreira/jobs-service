@@ -5,12 +5,12 @@ import (
 )
 
 func Init(){
+  //Initialize Router
   r := gin.Default()
-  r.GET("/ping", func(ctx *gin.Context) {
-    ctx.JSON(200, gin.H{
-      "message" : "pong",
-    })
-  })
+  rg := r.Group("/api/v1", )
+  //Initialize Routes
+  InitRoutes(rg)
+  // Run the server 
   _ = r.Run(":8080")
 }
 
